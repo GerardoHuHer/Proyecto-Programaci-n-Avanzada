@@ -352,4 +352,3 @@ void promedio_libros(std::map<int, std::vector<std::string>>& mapa) {
     double promedio = lib_total / lenght;
     std::cout << "El promedio de libros leidos por usuario es: " << promedio << " libros." << std::endl;
 }
-
