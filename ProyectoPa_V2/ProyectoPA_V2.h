@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef PROYECTOPA_V2_H
+#define PROYECTOPA_V2_H
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cstdlib>
+#include <thread>
 #include <map>
 
 class Book {
@@ -28,6 +29,7 @@ public:
 
 	// Sobrecarga de operadores
 	friend std::ostream& operator<<(std::ostream& os, const Book& objeto);
+	friend std::string busqueda_libro(const long& libro_id, std::vector<Book>& vec);
 
 	// Setter's	
 	void set_isbn(const std::string& isbn);
@@ -35,8 +37,6 @@ public:
 	void set_author(const std::string& author);	
 	void set_original_title(const std::string& original_title);
 	void set_title(const std::string& title);
-
-	friend std::string busqueda_libro(const long& libro_id, std::vector<Book>& vec);
 };
 
 // Clase Ratings
@@ -61,8 +61,8 @@ enum class Opciones {
 
 std::string obtenerEntreComillas(std::istream& input);
 bool primerCaracterEsComilla(std::istream& input);
-std::vector<Book> lectureBook(std::string);
-std::vector<Ratings> lectureRating(std::string);
+std::vector<Book> lectureBook(std::string, std::vector<Book>&);
+std::vector<Ratings> lectureRating(std::string, std::vector<Ratings>&);
 std::pair<int, std::vector<std::string>> mayor(std::map<int, std::vector<std::string>>& mapa);
 
 Opciones enterOpciones();
@@ -72,3 +72,5 @@ void devolver_mayor(std::map<int, std::vector<std::string>>& mapa);
 void devolver_menor(std::map<int, std::vector<std::string>>& mapa);
 void impresion_libros(std::vector<Book>&);
 void promedio_libros(std::map<int, std::vector<std::string>>& mapa);
+
+#endif

@@ -126,8 +126,7 @@ bool primerCaracterEsComilla(std::istream& input) {
 	char primerCaracter = input.peek();
 	return (primerCaracter == '"');
 }
-std::vector<Book> lectureBook(std::string directorio) {
-    std::vector<Book> libros;
+std::vector<Book> lectureBook(std::string directorio, std::vector<Book>& libros) {
     std::ifstream inputFile(directorio, std::ios::in);
     if (!inputFile) {
         std::cerr << "No se pudo abrir el archivo" << std::endl;
@@ -223,8 +222,7 @@ std::vector<Book> lectureBook(std::string directorio) {
   
     return libros;
 }
-std::vector<Ratings> lectureRating(std::string directorio) {
-    std::vector<Ratings> rating;
+std::vector<Ratings> lectureRating(std::string directorio, std::vector<Ratings>& rating) {
     std::ifstream inputFile(directorio, std::ios::in);
     if (!inputFile) {
         std::cerr << "No se pudo abrir el archivo" << std::endl;
