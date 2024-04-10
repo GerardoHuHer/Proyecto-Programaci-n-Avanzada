@@ -1,5 +1,6 @@
 #ifndef PROYECTOPA_V2_H
 #define PROYECTOPA_V2_H
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -56,12 +57,16 @@ public:
 };
 
 enum class Opciones {
-	TODOS_LIB = 1, MAYOR, MENOR, LIB_PROMEDIO, SALIR
+	TODOS_LIB = 1, 
+	MAYOR, 
+	MENOR, 
+	LIB_PROMEDIO, 
+	SALIR
 };
 
 std::string obtenerEntreComillas(std::istream& input);
 bool primerCaracterEsComilla(std::istream& input);
-std::vector<Book> lectureBook(std::string, std::vector<Book>&);
+std::vector<Book> lectureBook(std::string);
 std::vector<Ratings> lectureRating(std::string, std::vector<Ratings>&);
 std::pair<int, std::vector<std::string>> mayor(std::map<int, std::vector<std::string>>& mapa);
 
